@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: gitlab-registry-creds
+    namespace: flux-system
+type: Opaque
+stringData:
+    username: ENC[AES256_GCM,data:fujPBjQBz1cw/uI8nZ5cVdQjadHtUADU/b5/Dg==,iv:dFtbnW/GCLB32F7rtIqr0iD2rGoQGgqJ0JnvXrRtn1M=,tag:fxaAdc4v38eKD7DwTNG89g==,type:str]
+    password: ENC[AES256_GCM,data:dkGFo7Zg1GCKKy+Go0wmL/4JoVZ69Rk4sg==,iv:bT0Fg+ZT1cRz/nzfIY+INqQbPD2SUoX+ihLchWxW/hI=,tag:xMCfPCkLOQJWjM8XLLAe/A==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZZ1dicWFmS1ZIdUx5RTNm
+            cWRjdnFhYmpHRFozL0dsYk1xdkNheGtmYUZRClhyRklrVzlBUTduNjVqbjVYNGJS
+            aFNjcWVrUUF2TCswcE5MU0ZGSThlMUEKLS0tIHN2aFdacXI4d0JRdURSSWtTYzhp
+            ZHpwRWpqOC91SCs2VHZTYjhtUnhaS1kKCwDQNBhnSl4Hk1cBAM1+g2wZdaLMIuH/
+            wpYQea/eoItxOfXCGYtBYVIc/tWpwkoGbb+GbO3OOaZ8DuWLtQuMcQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1fjq24307cak02j920rd2ydkrflpr5u0dmfg4w3cdsgy0gww5ue2qh4qnhc
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-07-01T10:04:30Z"
+    mac: ENC[AES256_GCM,data:Ey0D1wrt1plgABD7V0AJulqLvBTiJ/h9E+VYExAbHlHelp3ERFU//gyIaOChdJDPB0MCq/ry4CV5wVgrYUSrhPD5vKmnG4/4KqK3nS7J/6kCSRcvHYX+X8H9g6lnjgof74QN+8yl3S+QatROXS9fLcaMnPW9EWANX4Ra4FWQedw=,iv:OIfynRTfglg/g+A+bCNW3ov/7bjHZcQkSeNtH5Blgw8=,tag:QSIZEDe4yY4B5BObC+iJdw==,type:str]
+    version: 3.13.2
