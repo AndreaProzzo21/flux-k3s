@@ -64,7 +64,7 @@ resource "aws_security_group" "k3s_sg" {
 # --- 4. ISTANZA EC2 (FREE TIER) ---
 resource "aws_instance" "k3s_server" {
   ami           = "ami-0084a47cc718c111a" # Ubuntu 24.04 LTS (eu-central-1)
-  instance_type = "t3.micro"
+  instance_type = "t3.small"
   key_name      = aws_key_pair.kp.key_name
 
   root_block_device {
