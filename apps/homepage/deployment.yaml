@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,7 +8,6 @@ metadata:
     app: homepage
 spec:
   replicas: 1
-  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: homepage
@@ -16,18 +16,14 @@ spec:
       labels:
         app: homepage
     spec:
-      serviceAccountName: homepage
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        fsGroup: 1000
       containers:
         - name: homepage
           image: ghcr.io/gethomepage/homepage:latest
-          imagePullPolicy: Always
+          env:
+            - name: HOMEPAGE_ALLOWED_HOSTS
+              value: "homepage.35.157.116.50.nip.io"
           ports:
-            - name: http
-              containerPort: 3000
+            - containerPort: 3000
           volumeMounts:
             - name: config
               mountPath: /app/config/settings.yaml
@@ -47,29 +43,11 @@ spec:
             - name: config
               mountPath: /app/config/kubernetes.yaml
               subPath: kubernetes.yaml
-          resources:
-            requests:
-              cpu: 50m
-              memory: 128Mi
-            limits:
-              cpu: 200m
-              memory: 256Mi
-          readinessProbe:
-            tcpSocket:
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            tcpSocket:
-              port: 3000
-            initialDelaySeconds: 15
-            periodSeconds: 20
-          securityContext:
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: false
-            capabilities:
-              drop: ["ALL"]
+            - name: homepage-logs
+              mountPath: /app/config/logs
       volumes:
         - name: config
           configMap:
             name: homepage-config
+        - name: homepage-logs
+          emptyDir: {}
