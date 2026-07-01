@@ -13,4 +13,6 @@ spec:
         kind: HelmRepository
         name: nodemonitor
         namespace: flux-system
-  values: {}
+  values:
+    monitoring:
+      containerRuntimeSocket: /run/k3s/containerd/containerd.sock
