@@ -1,3 +1,8 @@
 terraform/.terrafor*
 terraform/k3s-flux-key.pem
 terraform/terraform*
+
+# sops / secrets
+*.decrypted.yaml
+secret.yaml
+age-key.txt

@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: infrastructure/.*\.sops\.yaml$
+    encrypted_regex: ^(data|stringData)$
+    age: age1fjq24307cak02j920rd2ydkrflpr5u0dmfg4w3cdsgy0gww5ue2qh4qnhc
+  - path_regex: apps/.*\.sops\.yaml$
+    encrypted_regex: ^(data|stringData)$
+    age: age1fjq24307cak02j920rd2ydkrflpr5u0dmfg4w3cdsgy0gww5ue2qh4qnhc
