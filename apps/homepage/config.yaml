@@ -61,11 +61,13 @@ data:
         - IT-Tools:
             href: "http://it-tools.35.157.116.50.nip.io/"
             description: "Toolbox sviluppatori"
+            icon: server.png
             siteMonitor: "http://it-tools.it-tools.svc.cluster.local"
 
         - Node Monitor:
             href: "http://35.157.116.50:30090"
             description: "Metriche nodo in tempo reale"
+            icon: server.png
             siteMonitor: "http://nodemonitor.nodemonitor.svc.cluster.local"
 
     - Home Lab:
@@ -74,6 +76,11 @@ data:
             description: "Telemetria & Alert"
             icon: raspberry-pi.png
             siteMonitor: "https://edgehub.flowingbot.com"
+        - Secret Share (Raspberry):
+            href: "https://secret.flowingbot.com"
+            description: "Secure IT secret sharing"
+            icon: raspberry-pi.png
+            siteMonitor: "https://secret.flowingbot.com"
 
   bookmarks.yaml: |
     - Developer:
