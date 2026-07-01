@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - my-helm-chart-gitlab-creds.sops.yaml
+  - admin-sa.yaml
