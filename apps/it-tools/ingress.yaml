@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: it-tools-ingress
-  namespace: it-tools
+  namespace: testing
 spec:
   ingressClassName: traefik # Spiega a Kubernetes che il gestore è Traefik
   rules:
