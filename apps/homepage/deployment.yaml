@@ -61,12 +61,18 @@ spec:
             httpGet:
               path: /
               port: http
+              httpHeaders:
+                - name: Host
+                  value: "homepage.35.157.116.50.nip.io"
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
               port: http
+              httpHeaders:
+                - name: Host
+                  value: "homepage.35.157.116.50.nip.io"
             initialDelaySeconds: 15
             periodSeconds: 20
           securityContext:

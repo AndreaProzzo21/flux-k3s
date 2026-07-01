@@ -83,15 +83,16 @@ data:
             siteMonitor: "https://secret.flowingbot.com"
 
   bookmarks.yaml: |
-    - Developer:
-        - GitHub:
-            - abbr: GH
+      - Developer:
+          - GitHub:
+              abbr: GH
               href: "https://github.com/"
-        - GitLab:
-            - abbr: GL
+          - GitLab:
+              abbr: GL
               href: "https://gitlab.com/"
 
-  docker.yaml: ""
+  docker.yaml: |
+    ---
 
   kubernetes.yaml: |
     mode: cluster
