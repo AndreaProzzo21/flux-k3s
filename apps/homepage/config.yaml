@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: homepage
+data:
+  settings.yaml: |
+    title: "K3s Flux Lab"
+    favicon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kubernetes.png"
+    theme: dark
+    color: slate
+    headerStyle: clean
+    layout:
+      Cluster K3s:
+        style: row
+        columns: 2
+      Home Lab:
+        style: row
+        columns: 2
+    background:
+      image: https://images.unsplash.com/photo-1451187580459-43490279c0fa
+      blur: sm
+      saturate: 50
+      brightness: 50
+      opacity: 60
+
+  services.yaml: |
+    - Cluster K3s:
+        - IT-Tools:
+            href: "http://it-tools.35.157.116.50.nip.io/"
+            description: "Toolbox sviluppatori"
+            icon: tools.png
+            siteMonitor: "http://it-tools.35.157.116.50.nip.io/"
+        - Node Monitor:
+            href: "http://35.157.116.50:30090"
+            description: "Metriche nodo in tempo reale"
+            icon: chart.png
+            siteMonitor: "http://35.157.116.50:30090"
+
+    - Home Lab:
+        - EdgeHub (Raspberry):
+            href: "https://edgehub.flowingbot.com"
+            description: "Telemetria & Alert"
+            icon: raspberry-pi.png
+            siteMonitor: "https://edgehub.flowingbot.com"
+
+  widgets.yaml: |
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+
+  bookmarks.yaml: |
+    - Developer:
+        - GitHub:
+            - abbr: GH
+              href: "https://github.com/"
+        - GitLab:
+            - abbr: GL
+              href: "https://gitlab.com/"
+
+  docker.yaml: ""
+
+  kubernetes.yaml: |
+    mode: cluster

@@ -5,3 +5,4 @@ resources:
   - nodemonitor
   - edgehub-agent
   - it-tools
+  - homepage
