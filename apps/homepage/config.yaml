@@ -52,10 +52,6 @@ data:
           memory: true
           showLabel: true
 
-  # ATTENZIONE: sostituisci <service>.<namespace> con i nomi reali
-  # ricavabili con: kubectl get svc -A
-  # href resta pubblico (per il click dal browser),
-  # siteMonitor usa il DNS interno del cluster per evitare l'hairpin NAT su AWS.
   services.yaml: |
     - Cluster K3s:
         - IT-Tools:
@@ -83,12 +79,12 @@ data:
             siteMonitor: "https://secret.flowingbot.com"
 
   bookmarks.yaml: |
-      - Developer:
-          - GitHub:
-              abbr: GH
+    - Developer:
+        - GitHub:
+            - abbr: GH
               href: "https://github.com/"
-          - GitLab:
-              abbr: GL
+        - GitLab:
+            - abbr: GL
               href: "https://gitlab.com/"
 
   docker.yaml: |

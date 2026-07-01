@@ -28,9 +28,6 @@ spec:
           ports:
             - name: http
               containerPort: 3000
-          env:
-            - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "homepage.35.157.116.50.nip.io"
           volumeMounts:
             - name: config
               mountPath: /app/config/settings.yaml
@@ -61,26 +58,21 @@ spec:
             httpGet:
               path: /
               port: http
-              httpHeaders:
-                - name: Host
-                  value: "homepage.35.157.116.50.nip.io"
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
               port: http
-              httpHeaders:
-                - name: Host
-                  value: "homepage.35.157.116.50.nip.io"
             initialDelaySeconds: 15
             periodSeconds: 20
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: false  # homepage scrive cache interna, non forzare RO
+            readOnlyRootFilesystem: false
             capabilities:
               drop: ["ALL"]
       volumes:
         - name: config
           configMap:
             name: homepage-config
+
