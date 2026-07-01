@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: it-tools-ingress
+  namespace: it-tools
+spec:
+  ingressClassName: traefik # Spiega a Kubernetes che il gestore è Traefik
+  rules:
+  - host: it-tools.35.157.116.50.nip.io # Sostituisci con l'IP reale della EC2
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: it-tools # Deve corrispondere al nome del tuo Service standard
+            port:
+              number: 80 # La porta interna del Service
