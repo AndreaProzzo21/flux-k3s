@@ -11,3 +11,10 @@ metadata:
   name: testing
   labels:
     environment: testing
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: edgehub-system
+  labels:
+    environment: edgehub
