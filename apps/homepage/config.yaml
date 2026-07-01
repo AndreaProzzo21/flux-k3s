@@ -61,13 +61,11 @@ data:
         - IT-Tools:
             href: "http://it-tools.35.157.116.50.nip.io/"
             description: "Toolbox sviluppatori"
-            icon: it-tools.png
             siteMonitor: "http://it-tools.it-tools.svc.cluster.local"
 
         - Node Monitor:
             href: "http://35.157.116.50:30090"
             description: "Metriche nodo in tempo reale"
-            icon: mdi-chart-line
             siteMonitor: "http://nodemonitor.nodemonitor.svc.cluster.local"
 
     - Home Lab:
