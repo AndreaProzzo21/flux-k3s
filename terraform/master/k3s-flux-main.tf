@@ -69,6 +69,22 @@ resource "aws_security_group" "k3s_sg" {
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
+  # Il Worker parla con l'API Server
+  ingress {
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = ["172.31.0.0/16"]
+  }
+
+  # Rete Flannel (Comunicazione Master <- Worker)
+  ingress {
+    from_port   = 8472
+    to_port     = 8472
+    protocol    = "udp"
+    cidr_blocks = ["172.31.0.0/16"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
