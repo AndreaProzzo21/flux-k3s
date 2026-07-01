@@ -1,0 +1,3 @@
+terraform/.terrafor*
+terraform/k3s-flux-key.pem
+terraform/terraform*
