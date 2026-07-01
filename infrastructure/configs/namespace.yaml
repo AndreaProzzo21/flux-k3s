@@ -18,3 +18,8 @@ metadata:
   name: edgehub-system
   labels:
     environment: edgehub
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: homepage
