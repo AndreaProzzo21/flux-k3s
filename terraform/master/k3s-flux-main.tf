@@ -53,6 +53,22 @@ resource "aws_security_group" "k3s_sg" {
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
+  # Traffico HTTP per Traefik Ingress
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
+  # Traffico HTTPS (per il futuro con SSL)
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0

@@ -28,6 +28,20 @@ resource "aws_security_group" "k3s_worker_sg" {
     security_groups = [var.master_security_group_id]
   }
 
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
