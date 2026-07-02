@@ -32,8 +32,8 @@ Currently, the cluster is bootstrapped in a two-phase process to securely extrac
 
 ### Phase 1: Master Node Provisioning
 1. Initialize Terraform:
-   ```bash
-   terraform init
+```bash
+terraform init
 
 ```
 
@@ -42,7 +42,6 @@ Currently, the cluster is bootstrapped in a two-phase process to securely extrac
 terraform apply
 
 ```
-
 
 3. **Retrieve the Join Token**: Once the master is running, SSH into the instance using the generated key and retrieve the node token:
 ```bash
@@ -55,7 +54,6 @@ sudo cat /var/lib/rancher/k3s/server/node-token
 1. Update your local `variables.tfvars` file with the parameters generated from Phase 1:
 ```hcl
 master_security_group_id = "sg-0123456789abcdef"
-master_private_ip        = "172.31.x.x"
 k3s_join_token           = "K10...::server:..."
 
 ```
@@ -66,7 +64,6 @@ k3s_join_token           = "K10...::server:..."
 terraform apply
 
 ```
-
 
 *Terraform reads the `worker-userdata.sh.tpl` template, injects the token and the master's IP, and automatically joins the worker to the k3s cluster.*
 
