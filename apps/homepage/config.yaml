@@ -86,6 +86,9 @@ data:
         - GitLab:
             - abbr: GL
               href: "https://gitlab.com/"
+        - Cloudflare:
+            - abbr: CF
+              href: "https://dash.cloudflare.com/"
 
   docker.yaml: |
     ---
