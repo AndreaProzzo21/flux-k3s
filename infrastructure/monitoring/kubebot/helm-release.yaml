@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: botkube
-        namespace: monitoring
+        namespace: flux-system
   # Importa i valori sensibili dal Secret SOPS
   valuesFrom:
     - kind: Secret
