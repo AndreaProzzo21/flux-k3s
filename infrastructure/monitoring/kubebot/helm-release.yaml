@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: botkube
-      version: "~> 1.0"
+      version: ">= 1.14.0" # Scarica la versione più recente
       sourceRef:
         kind: HelmRepository
         name: botkube
@@ -17,24 +17,42 @@ spec:
     - kind: Secret
       name: botkube-discord-secret
   values:
+    # Da un nome al tuo cluster per Discord
+    settings:
+      clusterName: "k3s-cluster"
+
     communications:
       default-group:
         discord:
-          # Il binding deve stare DENTRO le impostazioni del canale
           channels:
             default:
               bindings:
                 sources:
                   - k8s-err-events
     
+    # La configurazione corretta per v1+
     sources:
       k8s-err-events:
         kubernetes:
-          namespaces:
-            include:
-              - ".*"
-          events:
-            - type: error
+          resources:
+            - type: v1/pods
+              namespaces:
+                include:
+                  - ".*"
+              events:
+                - error
+            - type: v1/nodes
+              namespaces:
+                include:
+                  - ".*"
+              events:
+                - error
+            - type: apps/v1/deployments
+              namespaces:
+                include:
+                  - ".*"
+              events:
+                - error
 
     executors: {}
 
