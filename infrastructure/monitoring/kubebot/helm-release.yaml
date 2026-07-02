@@ -8,41 +8,39 @@ spec:
   chart:
     spec:
       chart: botkube
-      version: "~> 1.0" # Usa l'ultima major version stabile
+      version: "~> 1.0"
       sourceRef:
         kind: HelmRepository
         name: botkube
         namespace: flux-system
-  # Importa i valori sensibili dal Secret SOPS
   valuesFrom:
     - kind: Secret
       name: botkube-discord-secret
-  # Definisce le regole di monitoraggio
   values:
     communications:
       default-group:
         discord:
-          bindings:
-            sources:
-              - k8s-err-events # Collega il canale alla sorgente degli errori
+          # Il binding deve stare DENTRO le impostazioni del canale
+          channels:
+            default:
+              bindings:
+                sources:
+                  - k8s-err-events
     
-    # Cosa deve ascoltare
     sources:
       k8s-err-events:
         kubernetes:
           namespaces:
             include:
-              - ".*" # Ascolta tutti i namespace
+              - ".*"
           events:
-            - type: error # Cattura solo i crash, OOMKilled, ImagePullBackOff, ecc.
+            - type: error
 
-    # Manteniamo la sezione vuota per la modalità "Read-Only"
     executors: {}
 
-    # Disabilitiamo l'RBAC di scrittura per sicurezza extra
     rbac:
       create: true
       rules:
         - apiGroups: ["*"]
           resources: ["*"]
-          verbs: ["get", "watch", "list"] # Solo permessi in lettura
+          verbs: ["get", "watch", "list"]
