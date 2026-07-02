@@ -5,17 +5,17 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: "Homepage - K3s Cluster"
+    title: "K3s Flux Lab"
     theme: dark
-    color: slate
+    color: violet
     headerStyle: boxed
 
     background:
       image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=80
       blur: xl
       saturate: 50
-      brightness: 60
-      opacity: 70
+      brightness: 55
+      opacity: 65
 
     layout:
       Cluster K3s:
@@ -57,25 +57,25 @@ data:
         - IT-Tools:
             href: "http://it-tools.35.157.116.50.nip.io/"
             description: "Toolbox sviluppatori"
-            icon: server.png
+            icon: mdi-tools
             siteMonitor: "http://it-tools.it-tools.svc.cluster.local"
 
         - Node Monitor:
             href: "http://35.157.116.50:30090"
             description: "Metriche nodo in tempo reale"
-            icon: server.png
+            icon: mdi-chart-line
             siteMonitor: "http://nodemonitor.nodemonitor.svc.cluster.local"
 
     - Home Lab:
         - EdgeHub (Raspberry):
             href: "https://edgehub.flowingbot.com"
             description: "Telemetria & Alert"
-            icon: raspberry-pi.png
+            icon: mdi-raspberry-pi
             siteMonitor: "https://edgehub.flowingbot.com"
         - Secret Share (Raspberry):
             href: "https://secret.flowingbot.com"
             description: "Secure IT secret sharing"
-            icon: raspberry-pi.png
+            icon: mdi-lock-outline
             siteMonitor: "https://secret.flowingbot.com"
 
   bookmarks.yaml: |
