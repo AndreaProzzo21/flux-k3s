@@ -138,9 +138,9 @@ This repository is currently organized to separate the physical infrastructure p
 
 ```text
 📦 k3s-flux
- ┣ 📂 terraform/                 # Physical infrastructure provisioning
- ┃ ┣ 📜 master/                 # AWS EC2, VPC, Security Groups definitions
- ┃ ┣ 📜 worker1/                # Terraform variables declarations
+ ┣ 📂 terraform/                # Physical infrastructure provisioning
+ ┃ ┣ 📂 master/                 # AWS EC2, VPC, Security Groups definitions
+ ┃ ┣ 📂 worker1/                # Terraform variables declarations
  ┃ ┗ 📜 README.md
  ┃
  ┣ 📂 clusters/
