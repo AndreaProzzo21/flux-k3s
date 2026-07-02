@@ -11,4 +11,6 @@ data:
     ingress:
       - hostname: dash.flowingbot.com
         service: http://traefik.kube-system.svc.cluster.local:80
+      - hostname: it-tools.flowingbot.com
+        service: http://traefik.kube-system.svc.cluster.local:80
       - service: http_status:404

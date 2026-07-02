@@ -55,16 +55,16 @@ data:
   services.yaml: |
     - Cluster K3s:
         - IT-Tools:
-            href: "http://it-tools.35.157.116.50.nip.io/"
+            href: "https://it-tools.flowingbot.com"
             description: "Toolbox sviluppatori"
             icon: mdi-tools
-            siteMonitor: "http://it-tools.it-tools.svc.cluster.local"
+            siteMonitor: "https://it-tools.flowingbot.com"
 
         - Node Monitor:
-            href: "http://35.157.116.50:30090"
+            href: "https://node.flowingbot.com"
             description: "Metriche nodo in tempo reale"
             icon: mdi-chart-line
-            siteMonitor: "http://nodemonitor.nodemonitor.svc.cluster.local"
+            siteMonitor: "https://node.flowingbot.com"
 
     - Home Lab:
         - EdgeHub (Raspberry):

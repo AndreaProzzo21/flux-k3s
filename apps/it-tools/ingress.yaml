@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik # Spiega a Kubernetes che il gestore è Traefik
   rules:
-  - host: it-tools.35.157.116.50.nip.io # Sostituisci con l'IP reale della EC2
+  - host: it-tools.flowingbot.com
     http:
       paths:
       - path: /
