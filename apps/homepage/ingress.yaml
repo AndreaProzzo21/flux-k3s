@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: homepage.35.157.116.50.nip.io
+    - host: dash.flowingbot.com
       http:
         paths:
           - path: /

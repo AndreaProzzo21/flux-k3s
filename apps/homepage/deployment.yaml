@@ -23,7 +23,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "homepage.35.157.116.50.nip.io"
+              value: "dash.flowingbot.com"
           ports:
             - name: http
               containerPort: 3000

@@ -5,7 +5,7 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: "K3s Flux Lab"
+    title: "Dashboard - K3s Cluster"
     theme: dark
     color: violet
     headerStyle: boxed
