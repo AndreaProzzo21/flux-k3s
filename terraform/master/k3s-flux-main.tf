@@ -45,30 +45,6 @@ resource "aws_security_group" "k3s_sg" {
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
-  # NodePort per testare le app
-  ingress {
-    from_port   = 30000
-    to_port     = 30100
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
-  }
-
-  # Traffico HTTP per Traefik Ingress
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
-  }
-
-  # Traffico HTTPS (per il futuro con SSL)
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
-  }
-
   # Il Worker parla con l'API Server
   ingress {
     from_port   = 6443
@@ -95,7 +71,7 @@ resource "aws_security_group" "k3s_sg" {
 
 # --- 4. ISTANZA EC2 (FREE TIER) ---
 resource "aws_instance" "k3s_server" {
-  ami           = "ami-0084a47cc718c111a" # Ubuntu 24.04 LTS (eu-central-1)
+  ami           = "ami-0084a47cc718c111a"
   instance_type = "t3.small"
   key_name      = aws_key_pair.kp.key_name
 
@@ -106,10 +82,8 @@ resource "aws_instance" "k3s_server" {
 
   vpc_security_group_ids = [aws_security_group.k3s_sg.id]
 
-  # SCRIPT DI BOOTSTRAP (Swap + K3s Ultra-Light)
   user_data = <<-EOF
               #!/bin/bash
-              # 1. Creazione Swap (2GB) fondamentale per Flux su t3.micro
               fallocate -l 2G /swapfile
               chmod 600 /swapfile
               mkswap /swapfile
@@ -118,18 +92,17 @@ resource "aws_instance" "k3s_server" {
               echo 'vm.swappiness=10' >> /etc/sysctl.conf
               sysctl -p
 
-              # 2. Installazione K3s senza fronzoli
               PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-              
+
               curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server \
                 --node-name k3s-master \
                 --tls-san $PUBLIC_IP \
-                --write-kubeconfig-mode 644 \
-                --disable traefik \
-                --disable servicelb \
-                --disable local-storage \
-                --disable metrics-server" sh -
+                --write-kubeconfig-mode 644" sh -
               EOF
+
+  lifecycle {
+    ignore_changes = [user_data]
+  }
 
   tags = {
     Name = "k3s-flux-lab"

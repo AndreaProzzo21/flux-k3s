@@ -4,9 +4,10 @@ data "http" "mio_ip" {
 
 resource "aws_security_group" "k3s_worker_sg" {
   name        = "k3s-worker-security-group"
-  description = "SG per il worker k3s"
+  description = "SG per il worker k3s - solo admin + traffico interno cluster"
   vpc_id      = var.vpc_id
 
+  # SSH — solo dal tuo IP
   ingress {
     from_port   = 22
     to_port     = 22
@@ -14,6 +15,7 @@ resource "aws_security_group" "k3s_worker_sg" {
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
+  # kubelet — solo dal master
   ingress {
     from_port       = 10250
     to_port         = 10250
@@ -21,25 +23,12 @@ resource "aws_security_group" "k3s_worker_sg" {
     security_groups = [var.master_security_group_id]
   }
 
+  # Flannel VXLAN — solo dal master
   ingress {
     from_port       = 8472
     to_port         = 8472
     protocol        = "udp"
     security_groups = [var.master_security_group_id]
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
   egress {
