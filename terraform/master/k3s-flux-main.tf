@@ -2,6 +2,16 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+terraform {
+  backend "s3" {
+      bucket         = "lab-flux-k3s-terraform-state"
+      key            = "master/terraform.tfstate"
+      region         = "eu-central-1" 
+      dynamodb_table = "terraform-state-lock" 
+      encrypt        = true 
+    }
+}
+
 # --- 1. RECUPERO IP PUBBLICO LOCALE ---
 data "http" "mio_ip" {
   url = "http://ipv4.icanhazip.com"

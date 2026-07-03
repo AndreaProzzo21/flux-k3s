@@ -12,6 +12,16 @@ data "aws_ami" "ubuntu" {
   }
 }
 
+terraform {
+  backend "s3" {
+      bucket         = "lab-flux-k3s-terraform-state"
+      key            = "worker/terraform.tfstate"
+      region         = "eu-central-1" 
+      dynamodb_table = "terraform-state-lock" 
+      encrypt        = true 
+    }
+}
+
 resource "tls_private_key" "worker_pk" {
   algorithm = "RSA"
   rsa_bits  = 4096
