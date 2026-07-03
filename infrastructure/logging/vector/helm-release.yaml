@@ -45,5 +45,5 @@ spec:
             - kubernetes_logs # Prende i dati dalla sorgente sopra
           # L'URL interno del cluster generato dal chart di VictoriaLogs
           endpoints: 
-            - http://victorialogs-victoria-logs-single-server.victorialogs.svc.cluster.local:9428/insert/elasticsearch/
+            - http://victorialogs-victoria-logs-single-server.logging.svc.cluster.local:9428/insert/elasticsearch/
           mode: bulk
