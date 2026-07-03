@@ -21,6 +21,13 @@ spec:
     service:
       enabled: false
 
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        memory: 256Mi
+
     customConfig:
       data_dir: /vector-data-dir
 
@@ -29,17 +36,28 @@ spec:
           type: kubernetes_logs
           extra_field_selector: "metadata.namespace!=logging"
 
+      transforms:
+        drop_health_checks:
+          type: filter
+          inputs:
+            - kubernetes_logs
+          condition: '!contains(string!(.message), "GET /health")'
+
       sinks:
         to_victorialogs:
           type: elasticsearch
           inputs:
-            - kubernetes_logs
+            - drop_health_checks
           endpoints:
             - http://victorialogs-victoria-logs-single-server.logging.svc.cluster.local:9428/insert/elasticsearch/
           mode: bulk
           api_version: v8
           healthcheck:
-            enabled: false
+            enabled: true
+          buffer:
+            type: disk
+            max_size: 268435488
+            when_full: block
           query:
             _msg_field: message
             _time_field: timestamp

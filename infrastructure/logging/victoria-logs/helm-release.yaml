@@ -25,8 +25,16 @@ spec:
   install:
     createNamespace: true
   values:
-    # Abilitiamo la persistenza per non perdere i log al riavvio del pod
     server:
       persistentVolume:
         enabled: true
         size: 4Gi
+
+      retentionPeriod: "30d"
+
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          memory: 256Mi
