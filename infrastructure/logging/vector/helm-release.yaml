@@ -40,10 +40,10 @@ spec:
       # Destinazione: Invia a VictoriaLogs
       sinks:
         to_victorialogs:
-          type: elasticsearch
+          type: http
           inputs: 
-            - kubernetes_logs # Prende i dati dalla sorgente sopra
-          # L'URL interno del cluster generato dal chart di VictoriaLogs
-          endpoints: 
-            - http://victorialogs-victoria-logs-single-server.logging.svc.cluster.local:9428/insert/elasticsearch/
-          mode: bulk
+            - kubernetes_logs
+          # Usiamo l'endpoint nativo jsonline invece di elasticsearch
+          uri: "http://victorialogs-victoria-logs-single-server:9428/insert/jsonline?_msg_field=message&_time_field=timestamp&_stream_fields=kubernetes.pod_namespace,kubernetes.pod_name,kubernetes.container_name"
+          encoding:
+            codec: json
