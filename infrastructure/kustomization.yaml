@@ -5,3 +5,4 @@ resources:
   - cloudflared
   - controllers
   - monitoring
+  - logging

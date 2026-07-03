@@ -1,0 +1,49 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: vector
+  namespace: flux-system
+spec:
+  interval: 24h
+  url: https://helm.vector.dev
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vector
+  namespace: logging
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: vector
+      version: ">=0.30.0"
+      sourceRef:
+        kind: HelmRepository
+        name: vector
+        namespace: flux-system
+  install:
+    createNamespace: true
+  values:
+    # Vector girerà come DaemonSet (Agent)
+    role: Agent
+    
+    # Questa è la pipeline di elaborazione
+    customConfig:
+      data_dir: /vector-data-dir
+      
+      # Sorgente: Raccoglie i log nativi di Kubernetes
+      sources:
+        kubernetes_logs:
+          type: kubernetes_logs
+          
+      # Destinazione: Invia a VictoriaLogs
+      sinks:
+        to_victorialogs:
+          type: elasticsearch
+          inputs: 
+            - kubernetes_logs # Prende i dati dalla sorgente sopra
+          # L'URL interno del cluster generato dal chart di VictoriaLogs
+          endpoints: 
+            - http://victorialogs-victoria-logs-single-server.victorialogs.svc.cluster.local:9428/insert/elasticsearch/
+          mode: bulk
