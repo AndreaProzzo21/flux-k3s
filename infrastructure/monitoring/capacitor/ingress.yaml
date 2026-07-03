@@ -4,8 +4,7 @@ metadata:
   name: capacitor-ingress
   namespace: flux-system
   annotations:
-    # Questa annotazione forza Traefik a cercare il servizio in questo namespace
-    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -16,6 +15,8 @@ spec:
         pathType: Prefix
         backend:
           service:
+            # A volte Traefik ha bisogno di capire che il servizio è 
+            # nel namespace dell'Ingress se non ha permessi cluster-wide
             name: capacitor
             port:
               number: 9000
