@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: capacitor-ingress
   namespace: flux-system
+  annotations:
+    # Questa annotazione forza Traefik a cercare il servizio in questo namespace
+    kubernetes.io/ingress.class: traefik
 spec:
   ingressClassName: traefik
   rules:
