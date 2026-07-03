@@ -17,4 +17,4 @@ spec:
   values:
     adminUser:
       create: true
-      createSecret: false # <-- Diciamo a Helm di usare il Secret esistente (gestito da SOPS)
+      createSecret: false
