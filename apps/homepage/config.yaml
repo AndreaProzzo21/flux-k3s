@@ -70,7 +70,7 @@ data:
             href: "https://log.flowingbot.com"
             description: "VictoriaLogs Dashboard for Cluster K3s AWS"
             icon: mdi-server
-            siteMonitor: "https://log.flowingbot.com"
+            siteMonitor: "https://log.flowingbot.com/select/vmui"
 
     - Home Lab:
         - EdgeHub (Raspberry):
@@ -90,7 +90,7 @@ data:
             icon: mdi-server
 
         - VictoriaLogs UI Cluster-DIPI:
-            href: "http://192.168.0.61:32001"
+            href: "http://192.168.0.61:32001/select/vmui"
             description: "VictoriaLogs Dashboard for Cluster-DIPI"
             icon: mdi-server
           
