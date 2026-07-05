@@ -90,7 +90,7 @@ data:
             icon: mdi-server
 
         - VictoriaLogs UI Cluster-DIPI:
-            href: "http://192.168.0.61:32000"
+            href: "http://192.168.0.61:32001"
             description: "VictoriaLogs Dashboard for Cluster-DIPI"
             icon: mdi-server
           
