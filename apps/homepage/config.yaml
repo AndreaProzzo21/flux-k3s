@@ -66,6 +66,12 @@ data:
             icon: mdi-chart-line
             siteMonitor: "https://node.flowingbot.com"
 
+        - VictoriaLogs UI:
+            href: "https://log.flowingbot.com"
+            description: "VictoriaLogs Dashboard for Cluster K3s AWS"
+            icon: mdi-server
+            siteMonitor: "https://log.flowingbot.com"
+
     - Home Lab:
         - EdgeHub (Raspberry):
             href: "https://edgehub.flowingbot.com"
@@ -77,11 +83,17 @@ data:
             description: "Secure IT secret sharing"
             icon: mdi-lock-outline
             siteMonitor: "https://secret.flowingbot.com"
+    - Cluster DIPI:
         - Grafana Cluster-DIPI:
             href: "http://192.168.0.61:32000"
             description: "Grafana Dashboard for Cluster-DIPI"
-            icon: mdi-server
+            icon: mdi-grafana
             siteMonitor: "http://192.168.0.61:32000"
+        - VictoriaLogs UI Cluster-DIPI:
+            href: "http://192.168.0.61:32000"
+            description: "VictoriaLogs Dashboard for Cluster-DIPI"
+            icon: mdi-server
+            siteMonitor: "http://192.168.0.61:32001"
 
   bookmarks.yaml: |
     - Developer:
