@@ -88,12 +88,12 @@ data:
             href: "http://192.168.0.61:32000"
             description: "Grafana Dashboard for Cluster-DIPI"
             icon: mdi-server
-            siteMonitor: "http://192.168.0.61:32000"
+
         - VictoriaLogs UI Cluster-DIPI:
             href: "http://192.168.0.61:32000"
             description: "VictoriaLogs Dashboard for Cluster-DIPI"
             icon: mdi-server
-            siteMonitor: "http://192.168.0.61:32001"
+          
 
   bookmarks.yaml: |
     - Developer:
