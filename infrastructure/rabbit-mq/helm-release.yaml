@@ -1,0 +1,45 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rabbitmq
+  namespace: flux-system
+spec:
+  interval: 1h
+  targetNamespace: message-broker
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: rabbitmq
+      version: ">=14.0.0 <15.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  values:
+    auth:
+      username: admin
+      existingPasswordSecret: rabbitmq-auth
+      existingSecretPasswordKey: rabbitmq-password
+    
+    # Abilitiamo MQTT e la Dashboard
+    extraPlugins: "rabbitmq_management rabbitmq_mqtt"
+    
+    # Tutto esposto tramite NodePort per intercettarlo con i SG di AWS
+    service:
+      type: NodePort
+      nodePorts:
+        amqp: 32010    # Porta AMQP interna/esterna
+        mqtt: 32011    # Porta per i payload MQTT dell'ESP32
+        manager: 32002 # Porta UI Web per il tuo IP
+        
+    persistence:
+      enabled: true
+      size: 2Gi
+
+    resources:
+      requests:
+        cpu: 250m
+        memory: 128Mi
+      limits:
+        memory: 256Mi
