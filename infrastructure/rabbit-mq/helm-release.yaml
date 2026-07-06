@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  targetNamespace: message-broker
+  targetNamespace: rabbit-mq
   install:
     createNamespace: true
   chart:
