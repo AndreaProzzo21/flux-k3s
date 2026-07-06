@@ -31,7 +31,7 @@ spec:
       nodePorts:
         amqp: 32010    # Porta AMQP interna/esterna
         mqtt: 32011    # Porta per i payload MQTT dell'ESP32
-        manager: 32002 # Porta UI Web per il tuo IP
+        manager: 32002 # Porta UI Web
         
     persistence:
       enabled: true
