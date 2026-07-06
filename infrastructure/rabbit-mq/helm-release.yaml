@@ -11,13 +11,17 @@ spec:
   chart:
     spec:
       chart: rabbitmq
-      # Abbiamo alzato la versione per evitare il problema dei tag fantasma
       version: ">=16.0.0"
       sourceRef:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
   values:
+    # --- AGGIUNTA PER BYPASSARE I TAG CANCELLATI ---
+    image:
+      tag: "latest"
+    # -----------------------------------------------
+    
     auth:
       username: admin
       existingPasswordSecret: rabbitmq-auth
