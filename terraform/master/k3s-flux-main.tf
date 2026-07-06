@@ -71,6 +71,22 @@ resource "aws_security_group" "k3s_sg" {
     cidr_blocks = ["172.31.0.0/16"]
   }
 
+  # RabbitMQ Management UI (NodePort) - Accesso riservato al tuo IP
+  ingress {
+    from_port   = 32002
+    to_port     = 32002
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
+  # RabbitMQ MQTT (NodePort) - Accesso riservato al tuo IP (e futuro ESP32)
+  ingress {
+    from_port   = 32011
+    to_port     = 32011
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
