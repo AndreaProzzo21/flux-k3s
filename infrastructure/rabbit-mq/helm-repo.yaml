@@ -4,5 +4,8 @@ metadata:
   name: bitnami
   namespace: flux-system
 spec:
+  # Diciamo a Flux che questo è un registry OCI, non un vecchio server web
+  type: oci
   interval: 24h
-  url: https://charts.bitnami.com/bitnami
+  # Il nuovo indirizzo ufficiale delle chart Bitnami su Docker Hub
+  url: oci://registry-1.docker.io/bitnamicharts
