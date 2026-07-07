@@ -1,0 +1,100 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-definitions
+  namespace: rabbit-mq
+data:
+  definitions.json: |
+    {
+      "vhosts": [
+        { "name": "/" }
+      ],
+      "exchanges": [
+        {
+          "name": "amq.topic",
+          "vhost": "/",
+          "type": "topic",
+          "durable": true,
+          "auto_delete": false
+        }
+      ],
+      "queues": [
+        {
+          "name": "Bologna-Fiera",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        },
+        {
+          "name": "Roma-Eur",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        },
+        {
+          "name": "Napoli-Porto",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        },
+        {
+          "name": "Torino-Poli",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        },
+        {
+          "name": "Milano-Centro",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        }
+      ],
+      "bindings": [
+        {
+          "source": "amq.topic",
+          "vhost": "/",
+          "destination": "Bologna-Fiera",
+          "destination_type": "queue",
+          "routing_key": "ev_charging.telemetry.bologna_fiera.#",
+          "arguments": {}
+        },
+        {
+          "source": "amq.topic",
+          "vhost": "/",
+          "destination": "Roma-Eur",
+          "destination_type": "queue",
+          "routing_key": "ev_charging.telemetry.roma_eur.#",
+          "arguments": {}
+        },
+        {
+          "source": "amq.topic",
+          "vhost": "/",
+          "destination": "Napoli-Porto",
+          "destination_type": "queue",
+          "routing_key": "ev_charging.telemetry.napoli_porto.#",
+          "arguments": {}
+        },
+        {
+          "source": "amq.topic",
+          "vhost": "/",
+          "destination": "Torino-Poli",
+          "destination_type": "queue",
+          "routing_key": "ev_charging.telemetry.torino_poli.#",
+          "arguments": {}
+        },
+        {
+          "source": "amq.topic",
+          "vhost": "/",
+          "destination": "Milano-Centro",
+          "destination_type": "queue",
+          "routing_key": "ev_charging.telemetry.milano_centro.#",
+          "arguments": {}
+        }
+      ]
+    }

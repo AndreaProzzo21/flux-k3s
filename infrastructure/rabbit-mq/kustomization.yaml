@@ -3,5 +3,7 @@ kind: Kustomization
 resources:
   - cred-secret.sops.yaml
   - config-map.yaml
+  - definitions-conf.yaml
+  - definitions.yaml
   - service.yaml
   - stateful-set.yaml

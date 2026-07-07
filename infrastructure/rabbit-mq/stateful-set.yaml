@@ -42,10 +42,22 @@ spec:
             - name: plugins-conf
               mountPath: /etc/rabbitmq/enabled_plugins
               subPath: enabled_plugins
+            - name: rabbitmq-conf
+              mountPath: /etc/rabbitmq/rabbitmq.conf
+              subPath: rabbitmq.conf
+            - name: definitions
+              mountPath: /etc/rabbitmq/definitions.json
+              subPath: definitions.json
       volumes:
         - name: plugins-conf
           configMap:
             name: rabbitmq-config
+        - name: rabbitmq-conf
+          configMap:
+            name: rabbitmq-conf
+        - name: definitions
+          configMap:
+            name: rabbitmq-definitions
   volumeClaimTemplates:
     - metadata:
         name: rabbitmq-data
