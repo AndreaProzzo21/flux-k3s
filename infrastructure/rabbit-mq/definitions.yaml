@@ -108,7 +108,7 @@ data:
           "vhost": "/",
           "destination": "global-alert",
           "destination_type": "queue",
-          "routing_key": "ev_charging.alerts.#",
+          "routing_key": "ev_charging.alert.#",
           "arguments": {}
         }
       
