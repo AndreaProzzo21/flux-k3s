@@ -79,12 +79,20 @@ resource "aws_security_group" "k3s_sg" {
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
 
-  # RabbitMQ MQTT (NodePort) - Accesso riservato al tuo IP (e futuro ESP32)
   ingress {
-    from_port   = 32011
-    to_port     = 32011
+    description = "Consente al cluster DIPI (Vector) di leggere da RabbitMQ via AMQP"
+    from_port   = 32010
+    to_port     = 32010
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
+    cidr_blocks = ["155.185.228.200/32"]
+  }
+
+  ingress {
+    description = "Consente al gateway sul raspberry (Vector+Mosquitto) di scriver su RabbitMQ via AMQP"
+    from_port   = 32010
+    to_port     = 32010
+    protocol    = "tcp"
+    cidr_blocks = ["93.44.81.216/32"]
   }
 
   egress {
