@@ -6,4 +6,4 @@ metadata:
 data:
   # Il punto finale è obbligatorio nella sintassi Erlang di RabbitMQ
   enabled_plugins: |
-    [rabbitmq_management,rabbitmq_mqtt].
+    [rabbitmq_management].

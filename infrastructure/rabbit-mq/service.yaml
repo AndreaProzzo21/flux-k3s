@@ -12,10 +12,6 @@ spec:
       port: 5672
       targetPort: 5672
       nodePort: 32010
-    - name: mqtt
-      port: 1883
-      targetPort: 1883
-      nodePort: 32011
     - name: manager
       port: 15672
       targetPort: 15672
