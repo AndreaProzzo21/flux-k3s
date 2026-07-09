@@ -75,7 +75,7 @@ data:
         - Rabbit MQ UI:
             href: "http://35.157.116.50:32002"
             description: "Rabbit MQ Dashboard Cluster K3s AWS"
-            icon: mdi-queue
+            icon: mdi-rabbit
             
 
     - Home Lab:
