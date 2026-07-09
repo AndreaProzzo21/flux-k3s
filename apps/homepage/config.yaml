@@ -92,7 +92,7 @@ data:
         - Landing Page (Raspberry):
             href: "https://www.flowingbot.com"
             description: "FlowingBot Landing Page"
-            icon: mdi-lock-server
+            icon: mdi-alpha-f-circle-outline
             siteMonitor: "https://www.flowingbot.com"
     - Cluster DIPI:
         - Grafana Cluster-DIPI:
