@@ -5,124 +5,111 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: "Dashboard - K3s Cluster"
+    title: "Cloud Native Command Center"
     theme: dark
-    color: sky
-    headerStyle: boxed
-
+    color: cyan
+    headerStyle: clean
+    cardStyle: glass
     background:
-      image: https://images.unsplash.com/photo-1668853853439-923e013afff1?auto=format&fit=crop&w=2560&q=80
-      blur: lg
-      saturate: 150
-      brightness: 75
-      opacity: 70
-
+      image: https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2560&q=80
+      blur: md
+      saturate: 110
+      brightness: 55
+      opacity: 85
     layout:
       Cluster K3s:
         style: row
-        columns: 2
+        columns: 4
       Home Lab:
         style: row
-        columns: 2
+        columns: 3
       Cluster DIPI:
         style: row
         columns: 2
-
     quicklaunch:
       searchKeyboardHotkey: "/"
       showSearchSuggestions: true
-      hideVisitURL: false
-
-    hideVersion: false
-
+      hideVisitURL: true
+    hideVersion: true
   widgets.yaml: |
     - datetime:
-        text_size: xl
+        text_size: 2xl
         format:
-          timeStyle: short
-          dateStyle: short
-
+          timeStyle: medium
+          dateStyle: long
     - kubernetes:
         cluster:
           show: true
           cpu: true
           memory: true
           showLabel: true
-          label: "cluster"
+          label: "K3s Core Node"
         nodes:
           show: true
           cpu: true
           memory: true
           showLabel: true
-
   services.yaml: |
     - Cluster K3s:
         - IT-Tools:
             href: "https://it-tools.flowingbot.com"
-            description: "Toolbox sviluppatori"
-            icon: mdi-tools
+            description: "Developer Toolbox"
+            icon: mdi-toolbox-outline
             siteMonitor: "https://it-tools.flowingbot.com"
-
         - Node Monitor:
             href: "https://node.flowingbot.com"
-            description: "Metriche nodo in tempo reale"
-            icon: mdi-chart-line
+            description: "Realtime Metrics"
+            icon: mdi-chart-bell-curve-cumulative
             siteMonitor: "https://node.flowingbot.com"
-
-        - VictoriaLogs UI:
+        - VictoriaLogs:
             href: "https://log.flowingbot.com"
-            description: "VictoriaLogs Dashboard for Cluster K3s AWS"
-            icon: mdi-server
+            description: "AWS Log Aggregator"
+            icon: mdi-text-box-search-outline
             siteMonitor: "https://log.flowingbot.com/select/vmui"
-
-        - Rabbit MQ UI:
+        - RabbitMQ:
             href: "http://35.157.116.50:32002"
-            description: "Rabbit MQ Dashboard Cluster K3s AWS"
-            icon: mdi-rabbit
-
-
+            description: "Message Broker"
+            icon: si-rabbitmq
     - Home Lab:
-        - EdgeHub (Raspberry):
+        - EdgeHub:
             href: "https://edgehub.flowingbot.com"
-            description: "Telemetria & Alert"
-            icon: mdi-raspberry-pi
+            description: "Telemetry & Alerts"
+            icon: si-raspberrypi
             siteMonitor: "https://edgehub.flowingbot.com"
-        - Secret Share (Raspberry):
+        - Secret Share:
             href: "https://secret.flowingbot.com"
-            description: "Secure IT secret sharing"
-            icon: mdi-lock-outline
+            description: "Secure IT Vault"
+            icon: mdi-shield-lock-outline
             siteMonitor: "https://secret.flowingbot.com"
-        - Landing Page (Raspberry):
+        - Landing Page:
             href: "https://www.flowingbot.com"
-            description: "FlowingBot Landing Page"
-            icon: mdi-alpha-f-circle-outline
+            description: "FlowingBot Portal"
+            icon: mdi-rocket-launch-outline
             siteMonitor: "https://www.flowingbot.com"
     - Cluster DIPI:
-        - Grafana Cluster-DIPI:
+        - Grafana:
             href: "http://192.168.0.61:32000"
-            description: "Grafana Dashboard for Cluster-DIPI"
-            icon: mdi-server
-
-        - VictoriaLogs UI Cluster-DIPI:
+            description: "Analytics Dashboard"
+            icon: si-grafana
+        - VictoriaLogs:
             href: "http://192.168.0.61:32001/select/vmui"
-            description: "VictoriaLogs Dashboard for Cluster-DIPI"
-            icon: mdi-server
-
-
+            description: "System Logs"
+            icon: mdi-database-eye-outline
   bookmarks.yaml: |
-    - Developer:
+    - Developer Hub:
         - GitHub:
             - abbr: GH
               href: "https://github.com/"
+              icon: si-github
         - GitLab:
             - abbr: GL
               href: "https://gitlab.com/"
+              icon: si-gitlab
         - Cloudflare:
             - abbr: CF
               href: "https://dash.cloudflare.com/"
-
+              icon: si-cloudflare
   docker.yaml: |
     ---
-
   kubernetes.yaml: |
     mode: cluster
