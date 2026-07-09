@@ -72,6 +72,12 @@ data:
             icon: mdi-server
             siteMonitor: "https://log.flowingbot.com/select/vmui"
 
+        - Rabbit MQ UI:
+            href: "http://35.157.116.50:32002"
+            description: "Rabbit MQ Dashboard Cluster K3s AWS"
+            icon: mdi-queue
+            
+
     - Home Lab:
         - EdgeHub (Raspberry):
             href: "https://edgehub.flowingbot.com"
@@ -83,6 +89,11 @@ data:
             description: "Secure IT secret sharing"
             icon: mdi-lock-outline
             siteMonitor: "https://secret.flowingbot.com"
+        - Landing Page (Raspberry):
+            href: "https://www.flowingbot.com"
+            description: "FlowingBot Landing Page"
+            icon: mdi-lock-server
+            siteMonitor: "https://www.flowingbot.com"
     - Cluster DIPI:
         - Grafana Cluster-DIPI:
             href: "http://192.168.0.61:32000"
