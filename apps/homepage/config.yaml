@@ -7,15 +7,16 @@ data:
   settings.yaml: |
     title: "Cloud Native Command Center"
     theme: dark
-    color: cyan
+    color: slate
     headerStyle: clean
     cardStyle: glass
     background:
-      image: https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2560&q=80
-      blur: md
-      saturate: 110
-      brightness: 55
-      opacity: 85
+      # Pianeta con nodi neurali/network globali luminosi
+      image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=80
+      blur: sm
+      saturate: 120
+      brightness: 65
+      opacity: 80
     layout:
       Cluster K3s:
         style: row
