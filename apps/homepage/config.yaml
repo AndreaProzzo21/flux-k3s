@@ -64,17 +64,17 @@ data:
             siteMonitor: "https://node.flowingbot.com"
         - VictoriaLogs:
             href: "https://log.flowingbot.com"
-            description: "AWS Log Aggregator"
-            icon: mdi-text-box-search-outline
+            description: "Cluster K3s Logs Aggregator"
+            icon: mdi-database-eye-outline
             siteMonitor: "https://log.flowingbot.com/select/vmui"
         - RabbitMQ:
             href: "http://35.157.116.50:32002"
-            description: "Message Broker"
+            description: "Cluster K3s Message Broker"
             icon: si-rabbitmq
     - Home Lab:
         - EdgeHub:
             href: "https://edgehub.flowingbot.com"
-            description: "Telemetry & Alerts"
+            description: "EdgeHub Dashboard"
             icon: si-raspberrypi
             siteMonitor: "https://edgehub.flowingbot.com"
         - Secret Share:
@@ -82,19 +82,19 @@ data:
             description: "Secure IT Vault"
             icon: mdi-shield-lock-outline
             siteMonitor: "https://secret.flowingbot.com"
-        - Landing Page:
+        - FlowingBot:
             href: "https://www.flowingbot.com"
-            description: "FlowingBot Portal"
+            description: "FlowingBot Lab - Landing Page"
             icon: mdi-rocket-launch-outline
             siteMonitor: "https://www.flowingbot.com"
     - Cluster DIPI:
         - Grafana:
             href: "http://192.168.0.61:32000"
-            description: "Analytics Dashboard"
+            description: "Cluster DIPI - Analytics Dashboard"
             icon: si-grafana
         - VictoriaLogs:
             href: "http://192.168.0.61:32001/select/vmui"
-            description: "System Logs"
+            description: "Cluster DIPI Logs Aggregator"
             icon: mdi-database-eye-outline
   bookmarks.yaml: |
     - Developer Hub:
