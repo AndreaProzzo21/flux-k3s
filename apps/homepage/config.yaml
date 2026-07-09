@@ -77,6 +77,11 @@ data:
             description: "EdgeHub Dashboard"
             icon: si-raspberrypi
             siteMonitor: "https://edgehub.flowingbot.com"
+        - n8n:
+            href: "https://n8n.flowingbot.com"
+            description: "n8n Dashboard"
+            icon: si-n8n
+            siteMonitor: "https://n8n.flowingbot.com"
         - Secret Share:
             href: "https://secret.flowingbot.com"
             description: "Secure IT Vault"
