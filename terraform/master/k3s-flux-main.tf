@@ -78,6 +78,14 @@ resource "aws_security_group" "k3s_sg" {
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.mio_ip.response_body)}/32"]
   }
+  
+  # Permette a KEDA di monitorare msg rate delle queue dal Cluster DIPI
+  ingress {
+    from_port   = 32002
+    to_port     = 32002
+    protocol    = "tcp"
+    cidr_blocks = ["155.185.228.200/32"]
+  }
 
   ingress {
     description = "Consente al cluster DIPI (Vector) di leggere da RabbitMQ via AMQP"
