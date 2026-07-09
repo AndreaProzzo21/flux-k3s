@@ -7,21 +7,24 @@ data:
   settings.yaml: |
     title: "Dashboard - K3s Cluster"
     theme: dark
-    color: violet
+    color: sky
     headerStyle: boxed
 
     background:
-      image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=80
-      blur: xl
-      saturate: 50
-      brightness: 55
-      opacity: 65
+      image: https://images.unsplash.com/photo-1668853853439-923e013afff1?auto=format&fit=crop&w=2560&q=80
+      blur: lg
+      saturate: 150
+      brightness: 75
+      opacity: 70
 
     layout:
       Cluster K3s:
         style: row
         columns: 2
       Home Lab:
+        style: row
+        columns: 2
+      Cluster DIPI:
         style: row
         columns: 2
 
@@ -76,7 +79,7 @@ data:
             href: "http://35.157.116.50:32002"
             description: "Rabbit MQ Dashboard Cluster K3s AWS"
             icon: mdi-rabbit
-            
+
 
     - Home Lab:
         - EdgeHub (Raspberry):
@@ -104,7 +107,7 @@ data:
             href: "http://192.168.0.61:32001/select/vmui"
             description: "VictoriaLogs Dashboard for Cluster-DIPI"
             icon: mdi-server
-          
+
 
   bookmarks.yaml: |
     - Developer:
