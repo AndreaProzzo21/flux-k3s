@@ -5,7 +5,7 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: "Cloud Native Command Center"
+    title: "Dashboard - Homepage"
     theme: dark
     color: slate
     headerStyle: clean
