@@ -5,5 +5,4 @@ resources:
   - controllers
   - monitoring
   - logging
-  - rabbit-mq
   - cloudflared
