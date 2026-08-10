@@ -68,7 +68,7 @@ data:
             icon: mdi-database-eye-outline
             siteMonitor: "https://log.flowingbot.com/select/vmui"
         - RabbitMQ:
-            href: "http://35.157.116.50:32002"
+            href: "http://54.93.46.10:32002"
             description: "Cluster K3s Message Broker"
             icon: si-rabbitmq
     - Home Lab:
