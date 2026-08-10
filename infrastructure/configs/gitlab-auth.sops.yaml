@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: gitlab-auth
+    namespace: monitoring
+type: kubernetes.io/dockerconfigjson
+stringData:
+    .dockerconfigjson: ENC[AES256_GCM,data:6HZhZDj6ScWvcHv1PMV8IezDaA8vieLTUfrMdxDZg7rDSFaI8YXGef0P4Ezd7q+hsdfccJS5e2jN/xGvuEG/r7GeVVh0pgxSEsLd3sBG+Nz4YLdw4AnT4FyDTd4aD28fCckSEely8KmvS5ANSZDUIbkjDXyqdp2vyJiv1YXfDCfbCYZoYm9h7ZbvK3CnxlpeUNZXJcYwf9hIXSO/wV47pbpmF6sV8dvb,iv:D+ijedV5+MA1LUYxJ+NODnPKvInbFepsJYsm5toq/zg=,tag:OP5U+10cO5Xb+UdWfvFGXQ==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtdm9rMUN6ODhpVHJFVlds
+            dzhWYWJYelU3d0duV2tXZHVmcE1EYTErNVFFCmQwSHZESnQwcG5uM2xnN2c3M2p0
+            U1NpcThtWXRHelZFREhkY2YyNG5CVUUKLS0tIGE4R2ZIclNGOU14SW5PbmZEMGdi
+            TkhYbzU3WFkzRFhOa094c1dxNFRGekkKFnyJuFnyIk4S8PLp/2SQ1hbGNncvoDvr
+            BN8NKXHmcLLgQ6iuxkg+7RJA2N9aRLqNhXlOJKqoc/tPXlbcsa/jlA==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1fjq24307cak02j920rd2ydkrflpr5u0dmfg4w3cdsgy0gww5ue2qh4qnhc
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-10T18:05:31Z"
+    mac: ENC[AES256_GCM,data:gplny8l8b4W7fp4cZtsSSaVtNO2K2gKvMRtTUMlS7uVoec6m8Z5XqmReVcjGlFI+EXYhvdHyDVc/0kYLF8J3ccLVY6qTtPd3ZQXme4HrYMxMHM4h1RAEJ4BsiYk1JjvKZpvbCWxQUjs4Gf3FYbFNUW6In2B88fIQO9d7dB6A+CM=,iv:/KotmSRSM8TZTSeYgqR31hD89CC4zo1Nre4baDmI660=,tag:f6fVqQelpxV+qJ3Lu6j1Lg==,type:str]
+    version: 3.13.2
