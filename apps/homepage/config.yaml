@@ -51,7 +51,7 @@ data:
           memory: true
           showLabel: true
   services.yaml: |
-    - Cluster K3s:
+    - Cluster K3s AWS:
         - IT-Tools:
             href: "https://it-tools.flowingbot.com"
             description: "Developer Toolbox"
@@ -67,10 +67,6 @@ data:
             description: "Cluster K3s Logs Aggregator"
             icon: mdi-database-eye-outline
             siteMonitor: "https://log.flowingbot.com/select/vmui"
-        - RabbitMQ:
-            href: "http://54.93.46.10:32002"
-            description: "Cluster K3s Message Broker"
-            icon: si-rabbitmq
     - Home Lab:
         - EdgeHub:
             href: "https://edgehub.flowingbot.com"
@@ -82,25 +78,24 @@ data:
             description: "n8n Dashboard"
             icon: si-n8n
             siteMonitor: "https://n8n.flowingbot.com"
-        - Secret Share:
-            href: "https://secret.flowingbot.com"
-            description: "Secure IT Vault"
-            icon: mdi-shield-lock-outline
-            siteMonitor: "https://secret.flowingbot.com"
         - FlowingBot:
             href: "https://www.flowingbot.com"
             description: "FlowingBot Lab - Landing Page"
             icon: mdi-rocket-launch-outline
             siteMonitor: "https://www.flowingbot.com"
-    - Cluster DIPI:
+    - Cluster MASA:
         - Grafana:
             href: "http://192.168.0.61:32000"
-            description: "Cluster DIPI - Analytics Dashboard"
+            description: "Cluster MASA - Analytics Dashboard"
             icon: si-grafana
         - VictoriaLogs:
             href: "http://192.168.0.61:32001/select/vmui"
-            description: "Cluster DIPI Logs Aggregator"
+            description: "Cluster MASA Logs Aggregator"
             icon: mdi-database-eye-outline
+        - RabbitMQ:
+            href: "http://192.168.0.61:31672"
+            description: "Cluster MASA Message Broker"
+            icon: si-rabbitmq
   bookmarks.yaml: |
     - Developer Hub:
         - GitHub:
